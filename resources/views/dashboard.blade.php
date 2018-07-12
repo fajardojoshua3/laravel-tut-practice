@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <a href="/posts/create" class="btn btn-primary pull-right">Create Post</a>
+                    <a href="/posts/create" class="btn btn-primary pull-right">Create Post&nbsp;&nbsp;&nbsp;<i class="glyphicon glyphicon-plus"></i></a>
                     <h3>Your Post(s)</h3>
                     @if(count($posts) > 0)
                         <table class="table table-striped">
@@ -25,11 +25,11 @@
                             @foreach($posts as $post)
                             <tr>
                                 <td class="strong">{{ $post->title }} </br> <small><i> Created at {{$post->created_at}}</i></small> </td>
-                                <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></td>
+                                <td><a href="/posts/{{$post->id}}/edit" class="btn btn-default"><i class="glyphicon glyphicon-pencil"></i></a></td>
                                 <td>
                                     {!!Form::open(['action' => ['PostsController@destroy', $post->id], 'method' =>  'POST'])!!}
                                     {{Form::hidden('_method', 'DELETE')}}
-                                    {{Form::submit('Delete', ['class' => 'btn btn-danger' ])}} <i class="glyphicon glyphicon-trash"></i>
+                                    {{Form::submit('Delete', ['class' => 'btn btn-danger' ])}} </i>
                                     {!!Form::close()!!}
                                 </td>
                             @endforeach
